@@ -1,0 +1,29 @@
+endpoint: /api/accounts/transfer
+method: POST
+description: Transfers funds from one account to another.
+
+inputs:
+  - name: from_account
+    type: string
+    required: true
+  - name: to_account
+    type: string
+    required: true
+  - name: amount
+    type: decimal
+    required: true
+
+preconditions:
+  - condition: amount > 0
+    message: "Transfer amount must be greater than zero."
+  - condition: from_account != to_account
+    message: "Accounts must be different."
+
+postconditions:
+  - condition: transaction record created
+    message: "A transfer transaction should be logged."
+
+expected_output:
+  status_code: 200
+  message: "Transfer completed successfully"
+  data_keys: [transactionId, from_account, to_account, amount]
