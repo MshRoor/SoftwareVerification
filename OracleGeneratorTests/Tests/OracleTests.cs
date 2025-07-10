@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xunit;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace OracleGeneratorTests.Tests
